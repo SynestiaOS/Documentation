@@ -51,7 +51,7 @@ To run kernel unit tests, you can find the kernel unit tests image under Build/
 qemu-system-arm -M raspi2 -kernel bin/KernelUnitTests.img -nographic -serial mon:stdio      #for raspi2 and arm32
 qemu-system-aarch64 -M raspi3 -kernel bin/KernelUnitTests.img -nographic -serial mon:stdio  #for raspi3 and arm64
 To clean workspace:
-```
+``` 
 make clean
 ```
 To debug kernel, arm32 for instance:
@@ -68,5 +68,6 @@ gdb-multiarch Kernel.img
 (gdb) c
 (gdb) si
 ```
+
 # Project Management
 [JIRA](https://synestiaos.atlassian.net/)
