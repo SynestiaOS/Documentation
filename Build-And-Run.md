@@ -38,28 +38,38 @@ cmake .. && make VERBOSE=1
 ```
 if you are using mac, specify the cross compile toolchain in CMake/ToolchainMacArm.cmake, 
 and specify the toolchain file location
+
 ```
 cmake -DCMAKE_TOOLCHAIN_FILE=${PATH_TO_THIS_PROJECT}/SynestiaOS/CMake/ToolchainMacArm.cmake .. && make VERBOSE=1
 ```
+
 To run kernel, you can find the kernel image under Build/
+
 ```
 qemu-system-arm -M raspi2 -kernel bin/Kernel.img -nographic -serial mon:stdio      #for raspi2 and arm32
 qemu-system-aarch64 -M raspi3 -kernel bin/Kernel.img -nographic -serial mon:stdio  #for raspi3 and arm64
 ```
+
 To run kernel unit tests, you can find the kernel unit tests image under Build/
+
 ```
 qemu-system-arm -M raspi2 -kernel bin/KernelUnitTests.img -nographic -serial mon:stdio      #for raspi2 and arm32
 qemu-system-aarch64 -M raspi3 -kernel bin/KernelUnitTests.img -nographic -serial mon:stdio  #for raspi3 and arm64
+```
+
 To clean workspace:
 ``` 
 make clean
 ```
+
 To debug kernel, arm32 for instance:
 openup terminal 1:
+
 ```
 qemu-system-arm -M raspi2 -kernel Kernel.img -s -S -nographic
 ```
 openup terminal 2:
+
 ```
 gdb-multiarch Kernel.img
 (gdb) target remote :1234
