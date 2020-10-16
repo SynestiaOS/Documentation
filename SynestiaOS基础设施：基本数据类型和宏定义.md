@@ -6,6 +6,7 @@
 
 ### 基本数据类型
 
+
 ```c
 typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
@@ -24,6 +25,7 @@ typedef _Bool bool;
 
 ### 一些宏定义
 
+
 ```c
 #define DEFAULT_STRING_LEN 256
 
@@ -38,7 +40,9 @@ typedef _Bool bool;
 #define nullptr (void *)0
 ```
 
+
 在 `SynestiaOS` 中，经常会遇到函数的返回值类型是 `KernelStatus`，该类型定义如下：
+
 
 ```c
 typedef enum KernelStatus {
