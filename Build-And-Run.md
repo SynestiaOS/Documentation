@@ -37,24 +37,24 @@ within the docker container, under the Build dir, run following command to build
 cmake .. && make VERBOSE=1
 ```
 if you are using mac, specify the cross compile toolchain in CMake/ToolchainMacArm.cmake, 
-and specify the toolchain file location
+and specify the toolchain file location, then install cmake with command `brew install cmake`
 
 ``` bash
 cmake -DCMAKE_TOOLCHAIN_FILE=${PATH_TO_THIS_PROJECT}/SynestiaOS/CMake/ToolchainMacArm.cmake -DPLATFORM=pi3 .. && make VERBOSE=1
 ```
 
-To run kernel, you can find the kernel image under Build/
+To run kernel, you can make a dir called Build and go into it, and install qemu system with command `brew install qemu`, then run: 
 
 ``` bash
-qemu-system-arm -M raspi2 -kernel bin/Kernel.img -nographic -serial mon:stdio      #for raspi2 and arm32
-qemu-system-aarch64 -M raspi3 -kernel bin/Kernel.img -nographic -serial mon:stdio  #for raspi3 and arm64
+qemu-system-arm -M raspi2 -kernel bin/Kernel.elf -nographic -serial mon:stdio      #for raspi2 and arm32
+qemu-system-aarch64 -M raspi3 -kernel bin/Kernel.elf -nographic -serial mon:stdio  #for raspi3 and arm64
 ```
 
 To run kernel unit tests, you can find the kernel unit tests image under Build/
 
 ``` bash
-qemu-system-arm -M raspi2 -kernel bin/KernelUnitTests.img -nographic -serial mon:stdio      #for raspi2 and arm32
-qemu-system-aarch64 -M raspi3 -kernel bin/KernelUnitTests.img -nographic -serial mon:stdio  #for raspi3 and arm64
+qemu-system-arm -M raspi2 -kernel bin/KernelUnitTests.elf -nographic -serial mon:stdio      #for raspi2 and arm32
+qemu-system-aarch64 -M raspi3 -kernel bin/KernelUnitTests.elf -nographic -serial mon:stdio  #for raspi3 and arm64
 ```
 
 To clean workspace:
